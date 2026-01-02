@@ -1,1 +1,4 @@
-Solo Lobby + Fix Metal Detector not working 
+# RDOLobby
+
+أداة بسيطة بواجهة Windows (PowerShell + WinForms) تساعدك على التبديل بين اللوبي العام واللوبي الخاص في Red Dead Online عبر تعديل ملف startup.meta داخل مجلد اللعبة، مع دعم تشغيل اللعبة من ستيم وروكستار وإيبك.  
+كما تتضمن الأداة ميزة معالجة مشكلة كاشف المعادن عبر تنظيف ملفات اللاعب (مثل ملف Player).
