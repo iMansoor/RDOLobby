@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RDOLobby</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── Custom title bar ── -->
+  <div class="titlebar">
+    <span class="titlebar-app">RDO<span class="titlebar-accent">Lobby</span></span>
+    <div class="titlebar-controls">
+      <button class="tb-btn" id="btn-minimize" title="Minimize">&#8722;</button>
+      <button class="tb-btn tb-close" id="btn-close" title="Close">&#10005;</button>
+    </div>
+  </div>
+
+  <!-- ── App ── -->
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <span class="ver-badge" id="ver-badge">v1.0.6</span>
+      <h1 class="header-title" id="header-title">لوبي ريد ديد اون لاين</h1>
+      <button class="lang-btn" id="lang-btn">English</button>
+    </header>
+
+    <!-- Settings -->
+    <section class="card" id="card-settings">
+      <div class="card-label" id="lbl-settings">الإعدادات</div>
+
+      <!-- Game path -->
+      <div class="form-row">
+        <label class="field-label" id="lbl-path">مسار اللعبة</label>
+        <div class="field-input-row">
+          <input type="text" class="input" id="txt-path" autocomplete="off" spellcheck="false">
+          <button class="btn btn-browse" id="btn-browse">استعراض</button>
+        </div>
+      </div>
+
+      <!-- Token + Steam select (inline — no separate row) -->
+      <div class="form-row">
+        <label class="field-label" id="lbl-suffix">الرمز الخاص</label>
+        <div class="field-input-row">
+          <input type="text" class="input" id="txt-suffix" autocomplete="off" spellcheck="false">
+          <select class="select select-inline" id="cmb-steam" style="display:none"
+                  title="Steam Version">
+            <option value="STEAM_STORY"  id="opt-story">نسخة القصة</option>
+            <option value="STEAM_ONLINE" id="opt-online">نسخة الأونلاين</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="settings-actions">
+        <button class="btn btn-save"   id="btn-save">حفظ</button>
+        <button class="btn btn-danger" id="btn-reset">مسح</button>
+      </div>
+    </section>
+
+    <!-- Status strip -->
+    <div class="info-strip">
+      <div class="info-card">
+        <span class="info-label" id="lbl-info-mode">الوضع</span>
+        <div class="info-value">
+          <span class="dot" id="dot-mode"></span>
+          <span id="val-mode">—</span>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-label" id="lbl-info-game">اللعبة</span>
+        <div class="info-value">
+          <span class="dot" id="dot-game"></span>
+          <span id="val-game">—</span>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-label" id="lbl-info-launcher">المشغّل</span>
+        <div class="info-value">
+          <span id="val-launcher">—</span>
+        </div>
+      </div>
+      <div class="info-card info-card-update">
+        <span class="info-label" id="lbl-update-title">تحديث</span>
+        <button class="btn btn-update" id="btn-update">تحديث</button>
+        <div class="update-hint hidden" id="update-hint"></div>
+      </div>
+    </div>
+
+    <!-- Launch -->
+    <div class="launch-row">
+      <button class="launch-btn solo-btn" id="btn-solo">
+        <span class="launch-icon solo-icon">⬡</span>
+        <span class="launch-label" id="lbl-solo">لوبي خاص</span>
+      </button>
+      <button class="launch-btn pub-btn" id="btn-public">
+        <span class="launch-icon pub-icon">◎</span>
+        <span class="launch-label" id="lbl-public">لوبي عام</span>
+      </button>
+    </div>
+
+  </div><!-- /app -->
+
+  <!-- Status bar -->
+  <div class="statusbar">
+    <span class="statusbar-dot" id="sb-dot"></span>
+    <span class="statusbar-msg"  id="sb-msg">جاهز</span>
+  </div>
+
+  <!-- Blocking overlay -->
+  <div class="overlay hidden" id="overlay">
+    <div class="spinner"></div>
+    <span id="overlay-msg"></span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
